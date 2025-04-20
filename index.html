@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=0.5">
+		<title>{nougat}</title>
+		<link rel="stylesheet" href="/styles/mainpage.css">
+	</head>
+	<body>
+		<div id="site-header">
+			<div class="left-pane">
+				<img src="/assets/logo.svg" width="auto" height="48px" alt="{nougat}">
+			</div>
+			<div class="right-pane">
+			<a href="/index.html">about</a>
+			<a href="/spec">spec</a>
+			<a href="/course">course</a>
+			<a href="/download">download</a>
+			<a href="https://github.com/nougatjs">github</a>
+			<a href="https://htla.bbs.io">by htlabs</a>
+			</div>
+		</div>
+		<div id="hero-section">
+			<div class="left-pane">
+				<div class="codeblock">
+when {run} {
+	log {Hello world!}
+	set {my variable} to { world!}
+
+	log [join {Hello}(my variable)]
+	send {hello}
+}
+
+on {hello} {
+	log {This is an example of an event!}
+}
+ </div>
+			</div>
+			<div class="right-pane">
+			<h1>It's what coding should be like.</h1>
+			<p><b>Write anything <i>your way</i>.</b> Nougat won't mind. It's a next-generation programming language that intelligently compiles to JavaScript 
+			and aims to balance ease of use and raw performance!</p>
+			</div>
+		</div>
+		<div class="zigzag"></div>
+		
+		<section>
+			<div class="text-icon">
+				(:
+			</div>
+			<div class="left-pane">
+			</div>
+			<div class="right-pane">
+				<h1>Dead simple.</h1>
+				<p>Nougat is designed for developers of all skill levels to focus on the creative part of their projects instead of debugging issues for hours. Just write and run! 
+				With Nougat, you don't need to strictly declare much of anything; the compiler will probably know what you mean.</p>
+			</div>
+		</section>
+		<line-h style="--spacing: 0px; --color: darkgray;"></line-h>
+		<section>
+			<div class="left-pane">
+				<h1>Ultra-flexible syntax.</h1>
+				<p><a href="#">Nougat syntax</a> is so simple we can put it on bullet points on a single section of this website:</p>
+				<ul>
+					<li><b><code>a:b</code> Functions:</b> are like terminal commands. These start a code line and use colons to separate their parts: 
+					<code>foo:bar:orderFromTheBar</code>. <code>foo</code> is the plugin/root, <code>bar</code> (middle parts) is the category, and 
+					<code>orderFromTheBar</code> (the last part) is the function.</li>
+					<li>
+						<b><code>{}()[]<></code> Inputs:</b> are the <i><u>positional</u></i> arguments for your command. They are data-containing brackets, each with a different purpose:
+						<ul>
+							<li><code>{}</code>:</b> Is used for literal, dynamically-typed values. The compiler automatically detects the value inside it as
+							an <code>int</code>, or <code>string</code> if there's at least one non-number. No need for <code>"</code>'s.</li>
+							<li><code>()</code>:</b> Is used to reference variables.</li>
+							<li><code>[]</code>:</b> Is used to pipe the output of the code line inside it to the parent one.</li>
+							<li><code><></code>:</b> Is used to evaluate a logical expression inside it. <a href="#">Here's how to use it.</a></li>
+						</ul>
+					</li>
+				</ul>
+				<p>You can even add...</p>
+
+			</div>
+			<div class="right-pane">
+			</div>
+			<div class="text-icon">
+				{}
+			</div>
+		</section>
+		<line-h style="--spacing: 0px; --color: darkgray;"></line-h>
+		<section>
+			<div class="text-icon">
+				//
+			</div>
+			<div class="left-pane">
+			</div>
+			<div class="right-pane">
+				<h1>Micro-comments!</h1>
+				<p>Since all the compiler sees is the <code>function</code> and the <code>{inputs}</code>, you can use the blank spaces after the function name to 
+				add context wherever you need it. Micro-comments live beside the code they describe:</p>
+				<div class="codeblock">
+alias {mediaStage} <u>as</u> {ms}
+ms:setBackground <u>we want to set a plain</u> {color} <u>for it, value will be</u> {#000000}
+				</div>
+			</div>
+		</section>
+		<line-h style="--spacing: 0px; --color: darkgray;"></line-h>
+		<section>
+		<div class="left-pane">
+			<h1>Highly expandable.</h1>
+			<p>Nougat already has a few functions built-in, many of which are borrowed from <a href="https://scratch.mit.edu">Scratch</a>, but you can easily import 
+			<a href="#">community-made</a> <code>.ngx</code> plugins into your project to get even more! Just add the download URLs of your plugins to your <code>imports</code> file on your project's root folder:</p>
+			<div class="codeblock">
+grab {https://example.com/url/to/your/plugin.ngx}
+grab {https://example.com/url/to/your/other-plugin.ngx}
+			</div>
+			<p><a href="#">Built-in plugins</a> like <code>mediaStage</code> are auto-imported as you use them!</p>
+			<br>
+			<p>You can even insert raw JavaScript mid-sentence into your Nougat code with the <code>js</code> function:</p>
+			<div class="codeblock">
+js {yourJSGoesHere}
+			</div>
+		</div>
+		<div class="right-pane">
+		</div>
+		<div class="text-icon">
+			ngx
+		</div>
+		</section>
+		<line-h style="--spacing: 0px; --color: darkgray;"></line-h>
+		<section>
+			<div class="text-icon">
+				*
+			</div>
+			<div class="left-pane">
+			</div>
+			<div class="right-pane">
+				<h1>The right tool for <br>every job.</h1>
+				<p>Nougat can be used in learning, in prototyping, and even in production, for all kinds of applications:</p>
+				<ul>
+					<li>Interactive media (games, art exhibits, dynamic websites, ...)</li>
+					<li><a href="https://www.electronjs.org/">Electron</a> apps (frontend + backend!)</li>
+					<li>Networking & web servers</li>
+					<li>CLI Tools</li>
+					<li>Education</li>
+					<li>Data analysis</li>
+					<li>Automation</li>
+					<li>Web widgets</li>
+				</ul>
+				<br>
+				<p>Nougat can be compiled to JS and exported to:</p>
+				<ul>
+					<li>Node + Electron (recommended)</li>
+					<li>Web (no support for node-only plugins)</li>
+					<li>Node CLI (no support for GUI plugins)</li>
+			</div>
+		</section>
+		<line-h style="--spacing: 0px; --color: darkgray;"></line-h>
+		<section style="text-align: center; display: block;">
+			<h1 style="color: #383c4a;">Ready to make your programming experience sweet, as it should be?</h1>
+			<a class="btn" href="/spec">Read the docs!</a>&nbsp;&nbsp;<a class="btn" href="/download">Compiler coming soon...</a>
+		</section>
+		<img src="/assets/logo-footer.png" width="100%" height="auto" style="display: block;">
+		<div id="footer-section">
+			<a href="https://htla.bbs.io"><img src="https://raw.githubusercontent.com/Dogo6647/dogo6647/refs/heads/main/htlogo-white.png" width="auto" height="64px"></a>
+			<div class="right-pane">
+				<a href="#">back to top</a>
+				<br>
+				<a href="/contributors">contributors</a>
+				<br>
+				<a href="/faq">questions?</a>
+			</div>
+		</div>
+	</body>
+</html>
