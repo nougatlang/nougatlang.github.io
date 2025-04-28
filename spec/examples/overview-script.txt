@@ -1,0 +1,141 @@
+// NOUGAT EXAMPLE MAIN OBJECT SCRIPT
+
+// DECLARE PLUGINS: plugin import declarations are not needed when libraries are built-in, as the compiler will prompt to automatically add them, but you can still specify those imports. Alternatively, import can be written as "grab". Global imports can also be saved to an "imports" file in the project's root folder, which will automatically be detected. Imports specific to objects can be specified in a similar way, either from another "imports" file in the object's folder, or directly in the object's code. However, plugins imported directly in the main object's code (root folder) will not be globalized unless they're specified in the imports file.
+
+import {*} from {mediaStage} // will import everything from mediaStage
+import {mediaStage} // works the same as above
+grab {https://example.com/nougatplugins/foobar.ngx} // will assume importing everything from foobar.ngx unless categories are specified:
+grab {foo:bar}&{isnt:it:var:tho} from {yougetthepoint.com} // <- "&" is optional but a nice addition.
+
+alias {mediaStage} as {ms}
+// to call an alias, use this format: ".myalias"
+
+// below is an equivalent to a greenflag on scratch. "when {} {}" is used for system-defined (or "built-in") events, while "on {} {}" is used for user-defined events.
+when {run} {
+	log {Hello world!} // as you can see, Nougat automatically interprets things inside {} as a string/int where applicable. To specify variables, the format "()" must be used instead.
+	
+	set {my variable} to { world!} // "{my variable} = { world!}" works as well. Variables don't need to be declared; they're dynamically created.
+	// "set (my variable) to { world!}" with () surrounding the variable name will just attempt to create a new variable named after the contents of (my variable), so {} should be used in most cases.
+	
+	log [join {Hello}(my variable)] // you can use braces "[]" to pass the result of a code line to the "parent" one. In this case, this will return "Hello world!".
+	send {hello} // send a user-defined event, which can be listened to globally. It is async by default, but "send:wait" can be used.
+	
+	do {world} // call a user function, which can only be listened to locally. "do:async" can be used to run the function asynchronously.
+	// once done, we continue:
+	
+	// You can also insert any JavaScript into Nougat mid-sentence:
+	js {yourJavaScript} // Just keep in mind executing js from a variable "()" may not always be safe.
+}
+
+define {world} { // the function that gets executed when "do {world}" is run.
+	log {this is an example of a function.}
+	
+	// How Nougat handles code lines:
+	set {my variable} to {something} 
+	// Nougat ignores the space between {}1 and {}2, which is only used for "micro-commenting". What Nougat sees is the function (set) and the inputs({}{}), which are like positional arguments in python.
+	ms:setBackground we want to set a plain {color} for it, value will be {#000000} // again, another example of "micro-commenting", just make sure to get the order of the inputs right. 
+	// If you don't want to do that, you can explicitly specify the input's category with "category:{input}", with "category:" and "{" stuck together.
+	
+	// How Nougat handles system/plugin function names:
+	someClass:someCategory:someFunction // function names should only contain letters, ":" as category separators, and NO spaces.
+	
+	// How Nougat handles mathematical operations and conditionals:
+	// <> is used to calculate a logical operation inside it. It does not support micro-commenting.
+	//
+	// syntax is as follows:
+	// <{input1}operator{input2}>: <>'s support any type of input around the middle operator (see operators below), be it {}, (), [], or even nesting <>.
+	//
+	// operators:
+	// is: Equivalent to "equal". "=" instead of "is" works as well.
+	// isNot: Equivalent to "not equal". "≠" works as well.
+	// approx/approximates: will round the result of things prior to it on runtime and run an "is".
+	// lt/isLessThan: Equivalent to "<". Do NOT actually use "<" or ">" inside "<>" as a means to do these kinds of operations, use "«" or "»" instead.
+	// gt/isGreaterThan: Equivalent to ">".
+	// or: Used to determine if either input is true. Will only work if the inputs return a boolean (true/false).
+	// and: Used to determine if both inputs are true. Will only work if the inputs return a boolean.
+	// contains: Used to determine if string {}1 contains the sequence of characters in string {}2 somewhere.
+	// Additionally, starting <> with "<not" (<not {input}>) inverts the result of an operation. If a boolean is not expected, the operators will be inverted.
+	//
+	//For example:
+	log <{9}+{10}> // logs the result of 9+10 to console (not to be confused with logarOf, which is used for logarithms.)
+	<{9}+{10}> // does the same 
+	<<{9}+{10}> is {21}> // logs false
+	set {number} to {5}
+	<<(number) isLessThan {8}> and <not <(number) isLessThan {0}>>> // logs true
+	set {myCondition} to <<(number) isLessThan {8}> and <not <(number) isLessThan {0}>>> // set variable myCondition to the result of <>
+	
+	// How Nougat handles conditions:
+	if (myCondition) { // the "if" will run if (myCondition) logs true. Again, any type of input is supported, as long as it logs true.
+		log {The condition is true!}
+	} // As simple as that :D
+	//For "else", simply do:
+	if (myCondition) {
+		log {The condition is true!}
+	} else { // Nougat automatically detects another input in a multi-line call if a new opening bracket follows after a closing bracket on the same line.
+		log {The condition is false!}
+	}
+	// So, usage of "if" is "if {condition} {action} {else-action}".
+	
+	// Extra conditions (like Scratch):
+	{myCondition} = {0}
+	repeatUntil <(myCondition) = 5> { // when run, loops through lines inside it until the condition becomes true
+		log {this will continue to be logged until myCondition becomes 5}
+		set {myCondition} to <(myCondition)+{1}>
+	}
+	// or if you want to repeat a specific number of times:
+	log {it goes on}
+	repeatTimes {5} {
+		log {and on}
+	}
+	// "while" works too if you come from a programming language that uses that:
+	while <[get:time:hour24] lt {8}> {
+		log {Zzz...}
+		log {zZz...}
+		log {zzZ...}
+		log {i will sleep til 8am}
+	}
+	// while:stop stops everything that's inside it and breaks the loop once the condition is no longer met, leaving further lines no chance to run.
+	while:stop <[get:time:hour24] lt {8}> {
+		log {Zzz...}
+		log {zZz...}
+		log {zzZ...}
+		log {i will sleep til 8am}
+		// once the condition is not true, this thread will stop and not every line will finish running
+	}
+	
+	// How Nougat handles blocking calls
+	send {makeIt6}
+	waitUntil <(myCondition) = {6}> // blocks the current thread until another thread (such as an event) makes myCondition 6.
+	wait {2}{s} // blocks this thread for 2 seconds.
+	wait {1}{m} // blocks this thread for 1 minute.
+	wait {5} // by default if no value is specified in {}2, this will wait {}1 SECONDS.
+	
+	// How to get variables from the system:
+	// plugin:get:varCategory:varName <- the key is adding "get:" after the plugin's name. The plugin spec recommends using the "get" category for this purpose.
+	// For non-plugin system variables, just use get: at the beginning:
+	get:time:hour24 // will log the current hour in 24-hour format (e.g. "22")
+	// with this, you can do:
+	log [join{The time is }[get:time:hour24]{:}[get:time:minute]]
+	
+	// How to create and use a private variable:
+	set:mine {myPrivateVar} to {And me? I'll take care of \n Mine, mine, mine, mine, mine!}
+	// or:
+	set {mine: myPrivateVar} to {And me? I'll take care of \n Mine, mine, mine, mine, mine!}
+	//
+	// You can reference a private variable with "(mine: yourVariableName)".
+	log (mine: myPrivateVar)
+	// Private variables can only be used by the active object.
+}
+
+on {hello} {
+	log {this is an example of an event. event calls will also be received by other objects.}
+	foo:bar:orderFromTheBar // calls "orderFromTheBar" from our foobar.ngx plugin.
+}
+
+on {makeIt6} {
+	wait {1}{s}
+	set {myCondition} to {6}
+}
+
+// from here, everything is just automatically adjusted, corrected (the compiler will try its best), and compiled directly to JavaScript, yipee :D!
+// With Nougat, you don't need to strictly declare much of anything; the compiler will know what you mean. Just know your a:b's, {}'s, and ()'s, and you should be good to go.

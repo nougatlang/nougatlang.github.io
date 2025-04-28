@@ -59,6 +59,21 @@ line-h {
     width: 100%;
 }
 
+#navbar-container {
+	background: 
+		url('/assets/maze-noise.png'),
+		linear-gradient(to top, #383c4a, #383c4a);
+	color: white;
+	display: block;
+	box-sizing: border-box;
+	
+	width: 100vw;
+    	max-width: 100%;
+    	height: 100%;
+    	max-height: 64px;
+    	border: none;
+}
+
 #site-header {
 	background: 
 		url('/assets/maze-noise.png'),
@@ -130,6 +145,10 @@ line-h {
 
 #footer-section a {
 	color: white
+}
+
+#content-separator {
+	display: none;
 }
 
 .left-pane {
@@ -209,13 +228,20 @@ line-h {
         text-align: right;
     }
     
-    #hero-section {
-    	padding-top: 150px;
+    #content-separator {
+    	display: block;
+    	padding-top: 128px;
     }
     
     #site-header {
     	max-height: 128px;
     	padding: 16px;
+    	position: fixed;
+    	z-index: 1000;
+    }
+    
+    #navbar-container {
+    	max-height: 128px;
     	position: fixed;
     	z-index: 1000;
     }

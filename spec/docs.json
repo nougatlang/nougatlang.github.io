@@ -1,0 +1,18 @@
+[
+	{
+		"address":"/spec/",
+		"title":"Getting started"
+	},
+	{
+		"address":"/spec/overview.html",
+		"title":"Overview script"
+	},
+	{
+		"address":"/spec/basic-syntax.html",
+		"title":"Basic syntax"
+	},
+	{
+		"address":"/spec/working-with-logic.html",
+		"title":"Working with <>"
+	}
+]
