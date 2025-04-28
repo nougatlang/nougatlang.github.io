@@ -56,7 +56,7 @@ on {hello} {
 		<section>
 			<div class="left-pane">
 				<h1>Ultra-flexible syntax.</h1>
-				<p><a href="#">Nougat syntax</a> is so simple we can put it on bullet points on a single section of this website:</p>
+				<p><a href="/spec/basic-syntax.html">Nougat syntax</a> is so simple we can put it on bullet points on a single section of this website:</p>
 				<ul>
 					<li><b><code>a:b</code> Functions:</b> are like terminal commands. These start a code line and use colons to separate their parts: 
 					<code>foo:bar:orderFromTheBar</code>. <code>foo</code> is the plugin/root, <code>bar</code> (middle parts) is the category, and 
@@ -68,7 +68,7 @@ on {hello} {
 							an <code>int</code>, or <code>string</code> if there's at least one non-number. No need for <code>"</code>'s.</li>
 							<li><code>()</code>:</b> Is used to reference variables.</li>
 							<li><code>[]</code>:</b> Is used to pipe the output of the code line inside it to the parent one.</li>
-							<li><code><></code>:</b> Is used to evaluate a logical expression inside it. <a href="#">Here's how to use it.</a></li>
+							<li><code><></code>:</b> Is used to evaluate a logical expression inside it. <a href="/spec/working-with-logic.html">Here's how to use it.</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -103,12 +103,12 @@ ms:setBackground <u>we want to set a plain</u> {color} <u>for it, value will be<
 		<div class="left-pane">
 			<h1>Highly expandable.</h1>
 			<p>Nougat already has a few functions built-in, many of which are borrowed from <a href="https://scratch.mit.edu">Scratch</a>, but you can easily import 
-			<a href="#">community-made</a> <code>.ngx</code> plugins into your project to get even more! Just add the download URLs of your plugins to your <code>imports</code> file on your project's root folder:</p>
+			<a href="/plugins">community-made</a> <code>.ngx</code> plugins into your project to get even more! Just add the download URLs of your plugins to your <code>imports</code> file on your project's root folder:</p>
 			<div class="codeblock">
 grab {https://example.com/url/to/your/plugin.ngx}
 grab {https://example.com/url/to/your/other-plugin.ngx}
 			</div>
-			<p><a href="#">Built-in plugins</a> like <code>mediaStage</code> are auto-imported as you use them!</p>
+			<p><a href="/spec/builtin-plugins.html">Built-in plugins</a> like <code>mediaStage</code> are auto-imported as you use them!</p>
 			<br>
 			<p>You can even insert raw JavaScript mid-sentence into your Nougat code with the <code>js</code> function:</p>
 			<div class="codeblock">
