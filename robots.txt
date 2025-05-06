@@ -1,0 +1,5 @@
+# hi robots
+# i'm a cat, nice to meet you :3
+
+User-Agent: *
+Disallow: /styles/
