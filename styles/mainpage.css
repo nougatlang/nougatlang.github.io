@@ -338,5 +338,11 @@ line-h {
     line-h {
         --spacing: 32px;
     }
+    
+    .btn {
+    	display: block;
+    	font-size: 1.4em;
+    	padding: 0.8em 1em;
+    }
 }
 
