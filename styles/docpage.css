@@ -26,6 +26,7 @@
 
 .doc-picker {
 	width: 100%;
+	min-height: 70px;
 	max-width: 100%;
 	box-sizing: border-box;
 	display: block;

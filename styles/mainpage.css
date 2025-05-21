@@ -17,6 +17,10 @@ html, body {
 		linear-gradient(to top,	#f0f0f0, #f9f9f9);
 }
 
+br {
+	user-select: none;
+}
+
 h1 {
 	font-family: var(--h1-fonts);
 	font-size: 48px;
@@ -105,7 +109,11 @@ line-h {
 
 #site-header .right-pane a:hover {
 	color: #fae896;
-	font-weight: bold;
+	text-shadow: 
+		0.5px 0 currentColor,
+		-0.5px 0 currentColor,
+		0 0.5px currentColor,
+		0 -0.5px currentColor
 }
 
 #hero-section {
