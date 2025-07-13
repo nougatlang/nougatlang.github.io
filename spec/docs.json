@@ -1,7 +1,23 @@
 [
 	{
+		"address":"/spec/project/index.html",
+		"title":"📁 Nougat project setup"
+	},
+	{
+		"address":"/spec/tools/index.html",
+		"title":"📁 Development tools"
+	},
+	{
+		"address":"/spec/plugins/index.html",
+		"title":"📁 Plugins"
+	},
+	{
 		"address":"/spec/",
 		"title":"Getting started"
+	},
+	{
+		"address":"/spec/differences.html",
+		"title":"How Nougat differs"
 	},
 	{
 		"address":"/spec/overview.html",
@@ -9,10 +25,10 @@
 	},
 	{
 		"address":"/spec/basic-syntax.html",
-		"title":"Basic syntax"
+		"title":"1. Basic syntax"
 	},
 	{
 		"address":"/spec/working-with-logic.html",
-		"title":"Working with <>"
+		"title":"2. Working with <>"
 	}
 ]

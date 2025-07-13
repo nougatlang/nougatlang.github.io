@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=0.5">
+		<meta property="og:title" content="Nougat" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://nougat.js.org" />
+        <meta property="og:image" content="https://nougat.js.org/assets/logo-raster.png" />
+        <meta property="og:description" content="A next-generation programming language that intelligently compiles to JavaScript and aims to balance ease of use and raw performance!" />
+        <meta name="theme-color" content="#f9e27b">
+		<title>{spec:project: how nougat differs}</title>
+		<link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/>
+		<link rel="stylesheet" href="/styles/mainpage.css">
+		<link rel="stylesheet" href="/styles/docpage.css">
+	</head>
+	<body>
+		<script src="/spec/docpicker.js"></script>
+		<iframe id="navbar-container" type="text/html" src="/assets/templates/navbar.html"></iframe>
+		<div id="content-separator"></div>
+		<div class="doc-picker"></div>
+		<h1>How Nougat differs</h1>
+		Here's what you need to know if you're coming from another language: <b>Nougat does not syntactically derive from other languages.</b> It is a new language that is designed to be easy to use and understand, 
+		while also being powerful and flexible. To make a language that is intuitive by design, we had to make a few compromises to familiarity, <b>but this is a good thing! Here's why:</b><br>
+		<ul>
+			<li>It follows an "anyone can code" approach, enabling new learners to get their project working as they want it to faster</li>
+			<li>It eliminates many inefficiencies found in even relatively modern programming languages</li>
+			<li>It is designed to look clean and easy to read and write</li>
+		</ul>
+		For instance, let's take a look at the following code snippet:
+		<div class="codeblock"><br>log {Hello World!}<br><br></div>
+		It outputs:
+		<code>Hello World!</code>
+		<br><br>But if we do:
+		<div class="codeblock"><br>log {"Hello World!"} // note the added quotes<br><br></div>
+		It outputs: <code>"Hello World!"</code> including the quotes you've added, which might not be what you want.
+		<br>To understand why this happens, we must keep in mind that <b>Nougat is a highly dynamic language with input-based types.</b><br>
+		<br><b>Inputs in Nougat are different kinds of brackets</b>, which are used to determine the type of data you want to plug into a function, such as a string, a variable, or a mathematical expression.
+		In this case, <b>we should focus on the <code>{}</code> input</b> (or the "literal" input, as I like to call it.). What this does is that it takes what's inside the brackets,<b> not</b> inside quotes, and dynamically determines it as a string or a number.
+		<b>It is used for "literal" values</b>, which are values that are not variables and do not change.
+		<br><br>So to sum things up, <code>{}</code> is for literals, <code>()</code> is for variables, <code>[]</code> is for plugging the output of a function into another, and <code>&lt;&gt;</code> is for mathematical expressions.
+		All you need to do is enter whatever you want to compute inside the brackets, no quotes needed, and Nougat will take care of the rest.
+		<br><br>
+		<h1 id="sect-objects">The concept of objects</h1>
+		Nougat is not entirely object-oriented <b>in the traditional sense</b>. In fact, Nougat has a completely different concept from languages like JavaScript of what an object is.
+		<b>In Nougat, an object is more like a sprite in Scratch.</b> A folder that contains all code and assets related to a specific thing. 
+		For example, if you want to create a game, you would create a folder for each character, and inside that folder, you would put all the code and assets related to that character.
+		<br><br>Scripts inside an object, when bundled inside a fully compiled project, <b>are immediately "activated"</b> and executing whatever is inside <code>when {run} {}</code> and/or listening for events broadcasted from other objects with <code>send {myEvent}</code>.
+		For more info on how to set up a project and its folder structure, including objects, check out the <a href="/spec/project/index.html">project setup guide</a>.
+		<br><br><br><br>
+		<img src="/assets/logo-footer.png" width="100%" height="auto" style="display: block;">
+		<div id="footer-section">
+			<a href="https://htla.bbs.io"><img src="https://raw.githubusercontent.com/Dogo6647/dogo6647/refs/heads/main/htlogo-white.png" width="auto" height="64px"></a>
+			<div class="right-pane">
+				<a href="#">back to top</a>
+				<br>
+				<a href="/contributors">contributors</a>
+				<br>
+				<a href="/faq">questions?</a>
+			</div>
+		</div>
+	</body>
+</html>

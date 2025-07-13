@@ -1,6 +1,6 @@
 function loadDocPicker() {
 
-    const jsonPath = '/spec/docs.json';
+    const jsonPath = 'docs.json';
     
     fetch(jsonPath)
         .then(response => response.json())

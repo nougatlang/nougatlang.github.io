@@ -9,7 +9,7 @@
         <meta property="og:image" content="https://nougat.js.org/assets/logo-raster.png" />
         <meta property="og:description" content="A next-generation programming language that intelligently compiles to JavaScript and aims to balance ease of use and raw performance!" />
         <meta name="theme-color" content="#f9e27b">
-		<title>{spec}</title>
+		<title>{spec:project: creating a nougat project}</title>
 		<link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/>
 		<link rel="stylesheet" href="/styles/mainpage.css">
 		<link rel="stylesheet" href="/styles/docpage.css">
@@ -19,31 +19,15 @@
 		<iframe id="navbar-container" type="text/html" src="/assets/templates/navbar.html"></iframe>
 		<div id="content-separator"></div>
 		<div class="doc-picker"></div>
-		<h1>Welcome to Nougat!</h1>
-		<b>You</b> decide how to start!<br>
-		🧭 To help you with this, here are a few questions for you:
-		
-		<ul>
-			<b>For Nougat code (.ng)</b>
-			<li>
-				🗺 Want a quick overview of all basic concepts? <a href="/spec/overview.html">Click here to view a fully-commented example script!</a>
-			</li>
-			<li>
-				🎭 Want to know how Nougat differs from other languages? <a href="/spec/differences.html">(it does differ quite a lot, but for good reason!)</a>
-			</li>
-			<li>
-				🚩 Want to go step-by-step while practicing? <a href="/spec/basic-syntax.html">Start here<a> and practice writing Nougat code from start to finish!
-			</li>
-		</ul>
-		<ul>
-			<b>For Nougat project environments:</b>
-			<li>
-				<a href="/spec/project/index.html">📦 Click here to learn how to set up a complete Nougat project folder!</a>
-			</li>
-		</ul>
-		
-		This is a WIP (promise :), right now many things here will 404, but we'll make sure to add more stuff as we develop the spec. 
-		Still have questions? Check out the <a href=/faq>FAQ</a>!
+		<h1>Creating a Nougat project</h1>
+		We recommend reading the "The concept of objects" section of the language's <a href="/spec/differences.html#sect-objects">differences</a> article before continuing with this guide.
+		<br><br>
+		Nougat is not just a programming language; it's a framework.
+		A Nougat project is a folder that contains all the code, objects, build configuration, and plugin imports related to a specific project.
+		It allows you to develop and run your full-fledged application in a structured way, and it is the recommended way to use Nougat.
+		<br><br>
+		To create a Nougat project, you can either create a folder with <a href="/spec/project/tree.html">this structure</a>, clone the <a href="https://github.com/nougatlang/nougat-exampleproject">nougat-exampleproject</a> repo, or use the <a href="/spec/tools/cli.html">Nougat Project CLI</a> to create it for you (recommended):
+
 		<br><br><br><br>
 		<img src="/assets/logo-footer.png" width="100%" height="auto" style="display: block;">
 		<div id="footer-section">
